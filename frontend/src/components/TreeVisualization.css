@@ -1,0 +1,295 @@
+.tree-container {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 12px;
+  min-height: 600px;
+  max-height: 800px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.tree-container.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.tree-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.tree-controls {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 0.5rem;
+  background: white;
+  padding: 0.5rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.control-btn {
+  padding: 0.5rem 1rem;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.control-btn:hover {
+  background: #2980b9;
+}
+
+.zoom-level {
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  color: #333;
+  line-height: 1;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 10;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.color-box {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #333;
+  border-radius: 3px;
+}
+
+.tree-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: white;
+  border-radius: 8px;
+}
+
+.tree-connections {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.generations-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  min-width: 100%;
+}
+
+.generation {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.gen-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #95a5a6;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding-left: 0.5rem;
+}
+
+.members-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.tree-card {
+  position: relative;
+  width: 180px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border-left: 5px solid #3498db;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.tree-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.card-initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.card-content {
+  padding: 1rem;
+  position: relative;
+}
+
+.card-name {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #2c3e50;
+  word-wrap: break-word;
+  padding-right: 20px;
+}
+
+.card-gender {
+  margin: 0 0 0.3rem 0;
+  font-size: 0.8rem;
+  color: #7f8c8d;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.card-spouse {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #e74c3c;
+  font-weight: 700;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background-color: #e74c3c;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  opacity: 0.7;
+}
+
+.delete-btn:hover {
+  opacity: 1;
+  background-color: #c0392b;
+  transform: scale(1.1);
+}
+
+.delete-btn:active {
+  transform: scale(0.95);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .tree-container {
+    padding: 1rem;
+  }
+
+  .tree-title {
+    font-size: 1.4rem;
+  }
+
+  .tree-legend {
+    gap: 1rem;
+  }
+
+  .legend-item {
+    font-size: 0.8rem;
+  }
+
+  .members-row {
+    justify-content: center;
+  }
+
+  .tree-card {
+    width: 160px;
+  }
+
+  .card-initials {
+    height: 45px;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tree-container {
+    padding: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .tree-title {
+    font-size: 1.2rem;
+  }
+
+  .tree-legend {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .legend-item {
+    font-size: 0.75rem;
+  }
+
+  .tree-card {
+    width: 140px;
+  }
+
+  .card-initials {
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  .card-name {
+    font-size: 0.9rem;
+  }
+
+  .card-role {
+    font-size: 0.8rem;
+  }
+}
